@@ -440,6 +440,9 @@ Setelah seluruh rangkaian disusun dan perangkat diprogram, sistem alarm kebakara
 
 Gambar berikut menunjukkan prototipe alat deteksi dini kebakaran berbasis ESP32 yang telah dirakit:
 
+"<img width="259" height="335" alt="Screenshot 2026-01-06 164537" src="https://github.com/user-attachments/assets/8e3e2435-948d-4609-b3ff-01f259b182ca" /> <img width="259" height="335" alt="image" src="https://github.com/user-attachments/assets/88af0e1c-75c5-4532-a566-3a8f59ecb30f" />
+
+
 ### 8.2 Respons Sensor Air dan Ultrasonik
 
 Pengujian dilakukan dengan mendekatkan permukaan air ke sensor ultrasonik serta menyentuhkan air ke sensor air digital. Dari hasil pengamatan terlihat bahwa:
@@ -498,9 +501,14 @@ Output LED menunjukkan status banjir sacara visual:
 
 **C. Kondisi Bahaya (air menyentuh sensor)**
 
-*LED hijau: OFF
-*LED merah: ON
-*Menandakan potensi banjir tinggi
+* LED hijau: OFF
+* LED merah: ON
+* Menandakan potensi banjir tinggi
+
+
+
+<img width="259" height="335" alt="Screenshot 2026-01-05 163038" src="https://github.com/user-attachments/assets/3c868170-d744-4b82-a1d1-b9cca3e4bc54" />
+
 
 > Dengan indikator ini, pengguna tetap bisa mengetahui kondisi meskipun tanpa aplikasi.
 
@@ -513,7 +521,11 @@ ESP32 berhasil mengirimkan data ke Blynk secara real-time:
 | -- | ------- | ---------- | ---------- | ------------ | --------------- |
 | 1  |   26     | 0          | 26          | 0    | AMAN        |
 | 2  |     12   |   0        | 12          | 0     | WASPADA BANJIR | 
-| 3  |   3      | 1          | 3          | 1 | BAHAYA BANJIR TINGGI    |
+| 3  |   1      | 1          | 1          | 1 | BAHAYA BANJIR TINGGI    |
+
+<img width="800" height="335" alt="Screenshot 2026-01-06 170923" src="https://github.com/user-attachments/assets/fbde804b-91bc-4fa1-ba78-cf6eb4c18c5f" />
+
+<img width="259" height="335" alt="image" src="https://github.com/user-attachments/assets/a83acba1-2efc-47fa-a78f-3824e244d718" />
 
 
 
