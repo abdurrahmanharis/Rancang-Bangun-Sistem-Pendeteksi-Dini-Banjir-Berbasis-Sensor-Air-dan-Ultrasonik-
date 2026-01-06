@@ -524,10 +524,13 @@ ESP32 berhasil mengirimkan data ke Blynk secara real-time:
 Berdasarkan pengujian dan implementasi, diperoleh kesimpulan:
 
 **1. Deteksi Dini Banjir**
+
 Sistem mampu membaca ketinggian air menggunakan sensor ultrasonik dan mendeteksi level kritis melalui sensor digital, sehingga memberikan peringatan bertingkat: Aman, Waspada, dan Bahaya.
 
 **2. Respons Visual dan Notifikasi Real-Time**
+
 LED hijau dan merah memberikan indikator visual, sementara Blynk menerima data real-time untuk pemantauan jarak jauh.
 
 **3. Integrasi ESP32 dan IoT Efektif**
+
 ESP32 memproses sensor, mengendalikan output, dan mengirim informasi ke Blynk, membuat sistem peringatan dini banjir berbasis IoT berjalan responsif dan informatif.
