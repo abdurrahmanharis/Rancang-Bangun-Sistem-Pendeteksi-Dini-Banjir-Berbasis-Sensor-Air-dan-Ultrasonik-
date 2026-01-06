@@ -1,15 +1,16 @@
 # Rancang Bangun Sistem Peringatan Dini Banjir Berbasis IoT Menggunakan Sensor Ultrasonik dan Sensor Air pada ESP32
-**Tim Pengembang: :**
+**Nama Anggota:**
 1. Muhammad Abdurrahman Haris (2306030025)
 2. Badru Munir                (2306030088)
 
 ## 1. Latar Belakang
 
-Banjir merupakan salah satu bencana alam yang sering terjadi di wilayah permukiman, dengan dampak signifikan baik berupa kerugian material maupun korban jiwa. Faktor penyebab utama antara lain curah hujan tinggi, sistem drainase yang buruk, meluapnya sungai, serta rendahnya kesadaran dan kesiapsiagaan masyarakat terhadap potensi kenaikan muka air. Salah satu kendala terbesar dalam penanganan banjir adalah keterlambatan dalam mendeteksi perubahan ketinggian air, sehingga warga baru menyadari ancaman ketika air telah mencapai level yang mengganggu aktivitas atau membahayakan keselamatan.
+Fenomena banjir di Indonesia semakin sering terjadi akibat faktor alam maupun aktivitas manusia, sehingga diperlukan suatu sistem pemantauan yang mampu memberikan informasi kondisi air secara cepat dan akurat. Banjir dapat menimbulkan dampak sosial, ekonomi, dan infrastruktur yang serius, sehingga masyarakat membutuhkan sistem peringatan dini untuk memantau kenaikan permukaan air secara real-time. Sistem berbasis teknologi mikrokontroler dinilai mampu memberikan solusi dalam memonitor ketinggian air melalui sensor, sehingga masyarakat dapat mengambil tindakan lebih awal sebelum banjir mencapai tahap kritis. [Nicko Pratama, Ucuk Darusalam, Novi Dian Nathasia (2020)](https://pdfs.semanticscholar.org/518d/476c31d108da04f2a1cd0fccc67abd8f44aa.pdf).
 
-Perkembangan teknologi sensor dan mikrokontroler memberikan peluang besar untuk mengembangkan sistem peringatan dini yang lebih efektif dan terjangkau. Sensor ultrasonik dapat digunakan untuk memantau jarak permukaan air secara kontinu, sehingga perubahan ketinggian air dapat dipantau secara presisi. Sementara itu, sensor air digital mendeteksi keberadaan air pada level kritis, berfungsi sebagai indikator kondisi darurat.
+Upaya pengembangan sistem peringatan dini banjir dengan teknologi sensor dapat dimanfaatkan untuk mendeteksi kenaikan muka air pada sungai atau saluran air secara terus-menerus. Sistem monitoring berbasis mikrokontroler mampu membantu pengiriman informasi kondisi banjir kepada pengguna, sehingga proses mitigasi bencana dapat dilakukan lebih cepat dan terarah. Dengan demikian, integrasi sensor pada sistem peringatan dini dianggap sangat penting untuk meningkatkan kesiapsiagaan masyarakat dalam menghadapi potensi banjir. [Martalia. Andayani, Widyaningrum.Indrasari, Bambang. H. Iswanto (2016)](https://journal.unj.ac.id/unj/index.php/prosidingsnf/article/view/4043).
 
-Dengan menggabungkan kedua sensor tersebut, sistem ini tidak hanya memonitor ketinggian air, tetapi juga memberikan klasifikasi kondisi, seperti Aman, Waspada, dan Bahaya, berdasarkan parameter yang terukur. Integrasi dengan teknologi Internet of Things (IoT) memungkinkan pengiriman data secara real-time ke perangkat pengguna, sehingga masyarakat dapat memperoleh informasi lebih cepat, meningkatkan kewaspadaan, dan meminimalkan risiko akibat banjir.
+Penggunaan jaringan komunikasi dan platform berbasis Internet of Things (IoT) memungkinkan data sensor dikirimkan ke perangkat pengguna secara langsung. Hal ini mendukung terciptanya sistem monitoring yang tidak hanya bekerja secara lokal, tetapi juga dapat dipantau dari jarak jauh melalui jaringan internet. Konsep tersebut sangat relevan dengan pengembangan sistem peringatan dini berbasis ESP32, sensor ultrasonik, sensor air digital, dan platform Blynk yang sedang dirancang dalam proyek ini, sehingga masyarakat dapat memperoleh informasi kondisi banjir secara real-time dan responsif. [Zahir Zainuddin, Abdul Latif Arda, Andi Zulkifli Nusri (2019)](https://www.academia.edu/download/100909825/142.pdf).
+
 
 ## 2. Rumusan Masalah
 
@@ -64,6 +65,8 @@ Alat dan bahan yang digunakan dalam proyek ini meliputi:
 
 ## 6. Pengujian Komponen
 
+Pada tahapan ini, dilakukan pengujian setiap komponen penyusun sistem secara mandiri sebelum dilakukan integrasi ke dalam sistem utama. Tujuannya adalah untuk memastikan bahwa seluruh perangkat keras dan perangkat lunak berfungsi dengan baik sehingga siap digunakan pada tahap perancangan sistem IoT.
+
 ### 6.1 Pengujian Sensor
 
 Sensor ultrasonik dan sensor air digital diuji secara mandiri untuk memastikan respons yang tepat sebelum integrasi.
@@ -111,11 +114,16 @@ void loop() {
 }
 ```
 
-**Hasil Pengujian:**
-* Jarak air yang semakin kecil menunjukkan permukaan air mendekati sensor.
+**Tabel Data Hasil Uji Sensor Ketinggian Air dan Sensor Air Digital**
+| No | Kondisi Pengujian                              | Jarak Terbaca (cm) | Status Sensor Air | Output Serial Monitor  |
+| -- | ---------------------------------------------- | ------------------ | ----------------- | ---------------------- |
+| 1  | Tidak ada air / kering                         | 30 cm              | 0 (LOW)           | 30 cm — TIDAK ADA AIR  |
+| 2  | Air mulai naik tapi belum menyentuh sensor air | 18 cm              | 0 (LOW)           | 18 cm — TIDAK ADA AIR  |
+| 3  | Permukaan air lebih dekat ke sensor            | 12 cm              | 0 (LOW)           | 12 cm — TIDAK ADA AIR  |
+| 4  | Air menyentuh sensor air digital               | 10 cm              | 1 (HIGH)          | 10 cm — AIR TERDETEKSI |
+| 5  | Sensor air tetap terendam                      | 8 cm               | 1 (HIGH)          | 8 cm — AIR TERDETEKSI  |
 
-* Sensor air digital bernilai HIGH saat air menyentuh sensor (level kritis).
-
+> Program ini menggunakan ESP32 untuk membaca dua jenis sensor, yaitu sensor ultrasonik dan sensor air digital. Sensor ultrasonik pada pin 27 digunakan untuk mengukur jarak tinggi air dalam satuan centimeter, sedangkan sensor air digital pada pin 32 hanya mendeteksi ada atau tidaknya air (logika 1 = terdeteksi). Nilai jarak dan status air kemudian ditampilkan ke Serial Monitor setiap 1 detik. Dengan demikian, program ini berfungsi sebagai alat uji sederhana untuk memastikan kedua sensor sudah bekerja dan terbaca dengan benar oleh ESP32.
 
 
 ### 6.2 Pengujian Output (LED)
@@ -140,6 +148,13 @@ void loop() {
 }
 
 ```
+**Tabel Data Hasil Uji Output LED**
+| No | Kondisi Program                                      | LED Hijau (Pin 13) | LED Merah (Pin 15) | Durasi  | Keterangan                        |
+| -- | ---------------------------------------------------- | ------------------ | ------------------ | ------- | --------------------------------- |
+| 1  | `digitalWrite(LED1, HIGH); digitalWrite(LED2, LOW);` | ON                 | OFF                | 2 detik | LED hijau menyala, LED merah mati |
+| 2  | `digitalWrite(LED1, LOW); digitalWrite(LED2, HIGH);` | OFF                | ON                 | 2 detik | LED hijau mati, LED merah menyala |
+| 3  | `digitalWrite(LED1, LOW); digitalWrite(LED2, LOW);`  | OFF                | OFF                | 2 detik | Kedua LED mati                    |
+
 >  Pada program uji, LED hijau dan LED merah dibuat menyala bergantian dengan jeda waktu tertentu, kemudian keduanya dimatikan, sementara statusnya ditampilkan di Serial Monitor. Hasil pengujian menunjukkan bahwa LED berfungsi dengan baik dan dapat dikendalikan dan siap digunakan sebagai indikator kondisi banjir.
 
 
@@ -176,6 +191,15 @@ void loop() {
 /// memastikan status wifi
 }
 ```
+**Tabel Data Hasil Uji Koneksi Wifi ke ESP32**
+| No | Kondisi Uji                       | Tampilan di Serial Monitor                                                                                                                  | Status Koneksi            |
+| -- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| 1  | WiFi tersedia & password benar    | `Menghubungkan ke WiFi...` lalu tampil titik “.....” dan akhirnya pesan **"ESP32 berhasil terhubung ke WiFi!"** serta **IP Address muncul** | Berhasil terhubung        |
+| 2  | WiFi tersedia tetapi sinyal lemah | Titik “.....” muncul lebih lama sebelum tersambung                                                                                          | Terhubung tetapi lambat   |
+| 3  | SSID salah / WiFi tidak ditemukan | Titik “.....” terus muncul tanpa henti                                                                                                      | Gagal terhubung           |
+| 4  | Password salah                    | Titik “.....” terus muncul tanpa henti                                                                                                      | Gagal terhubung           |
+| 5  | WiFi mati di tengah proses        | Titik berhenti lalu koneksi terputus                                                                                                        | Putus sebelum mendapat IP |
+
 >Program ini berfungsi untuk memastikan ESP32 dapat terhubung ke jaringan WiFi dengan benar. Setelah SSID dan password diatur, ESP32 mencoba menyambung ke WiFi dan menampilkan prosesnya melalui Serial Monitor. Jika koneksi berhasil, program menampilkan pesan keberhasilan beserta alamat IP ESP32. Program ini tidak menjalankan fungsi lain karena hanya difokuskan untuk pengujian koneksi jaringan.
 
 
@@ -213,12 +237,21 @@ void loop()
   Blynk.run();   // Menjaga koneksi tetap aktif
 }
 ```
+**Tabel Data Hasil Uji Koneksi ESP32 ke WiFi & Blynk**
+| No | Tanggal / Waktu Pengujian | SSID WiFi             | Kondisi Sinyal WiFi | Status Koneksi WiFi | Status Koneksi Blynk | Output di Serial Monitor                                | Keterangan             |
+| -- | ------------------------- | --------------------- | ------------------- | ------------------- | -------------------- | ------------------------------------------------------- | ---------------------- |
+| 1  | 05-01-2026 / 15:33        | Ryan D Gracia         | Kuat                | Terhubung           | Terhubung            | “Menghubungkan ke WiFi…”<br>“ESP32 berhasil terhubung…” | Berhasil               |
+| 2  | 05-01-2026 / 15:35        | Ryan D Gracia         | Lemah               | Terhubung           | Kadang terputus      | Terkadang reconnect                                     | Perlu penguatan sinyal |
+| 3  | 05-01-2026 / 15:37        | Ryan D Gracia         | Tidak ada sinyal    | Gagal               | Gagal                | “Menghubungkan ke WiFi…” (berulang)                     | Tidak ada jaringan     |
+| 4  | 05-01-2026 / 15:38        | SSID salah dimasukkan | -                   | Gagal               | Gagal                | “Menghubungkan ke WiFi…” (tidak pernah tersambung)      | Pastikan SSID benar    |
+| 5  | 05-01-2026 / 15:42        | Ryan D Gracia         | Stabil              | Terhubung           | Terhubung stabil     | Koneksi berjalan normal                                 | Kondisi ideal          |
+
 > Saat program dijalankan, ESP32 akan membuka komunikasi Serial dan kemudian mencoba terhubung ke WiFi serta server Blynk menggunakan SSID, password, dan token yang telah dimasukkan. Jika koneksi berhasil, status keberhasilan akan terlihat di Serial Monitor. Fungsi Blynk.run() di dalam loop() menjaga agar koneksi tetap aktif. Secara sederhana, program ini hanya digunakan untuk memastikan bahwa ESP32 sudah berhasil terhubung ke jaringan dan Blynk sebelum dilanjutkan ke tahap integrasi sensor dan output.
 
 
 ## 7. Pembuatan Alat
 
-Pada tahap pembuatan alat, sistem mulai mengintegrasikan pembacaan sensor dengan pengendalian LEDuntuk membentuk sebuah alarm peringatan banjir sederhana. Fokus utama masih pada versi konvensional (non-IoT), di mana peringatan hanya diberikan secara lokal melalui indikator visual.
+Pada tahap pembuatan alat, sistem mulai mengintegrasikan pembacaan sensor dengan pengendalian LED untuk membentuk sebuah alarm peringatan banjir sederhana. Fokus utama masih pada versi konvensional (non-IoT), di mana peringatan hanya diberikan secara lokal melalui indikator visual.
 
 ### 7.1 Desain Logika Sistem
 
@@ -401,7 +434,7 @@ void loop()
     digitalWrite(LED2, HIGH);
     Serial.println("STATUS: AIR TERDETEKSI");
 
-    Blynk.virtualWrite(V2, "BAHAYAB BANJIR TINGGI");
+    Blynk.virtualWrite(V2, "BAHAYA BANJIR TINGGI");
   }
   else if (RangeInCentimeters <= 15)
   {
@@ -434,11 +467,11 @@ void loop()
 
 ## 8. HASIL DAN PEMBAHASAN
 
-Setelah seluruh rangkaian disusun dan perangkat diprogram, sistem alarm kebakaran diuji dengan berbagai skenario untuk mengamati respons output terhadap kondisi sensor serta integrasi IoT melalui platform Blynk. Berikut adalah hasil pengamatan dan pembahasan untuk tiap fungsionalitas utama.
+Pada tahapan ini, memberikan hasil implementasi dan pengujian sistem secara keseluruhan, baik pada level perangkat keras maupun integrasi IoT melalui platform Blynk. Pembahasan difokuskan pada respons sensor, indikator keluaran, serta kinerja sistem dalam memantau ketinggian air secara real-time.
 
-### 8.1 Tampilan ALat
+### 8.1 Tampilan Alat
 
-Gambar berikut menunjukkan prototipe alat deteksi dini kebakaran berbasis ESP32 yang telah dirakit:
+Gambar berikut menunjukkan prototipe alat sistem peringatan dini banjir berbasis ESP32 yang telah dirakit:
 
 "<img width="259" height="335" alt="Screenshot 2026-01-06 164537" src="https://github.com/user-attachments/assets/8e3e2435-948d-4609-b3ff-01f259b182ca" /> <img width="259" height="335" alt="image" src="https://github.com/user-attachments/assets/88af0e1c-75c5-4532-a566-3a8f59ecb30f" />
 
@@ -451,7 +484,7 @@ Pengujian dilakukan dengan mendekatkan permukaan air ke sensor ultrasonik serta 
 
 * Sensor air digital akan memberikan logika HIGH ketika air sudah menyentuh probe sensor (dibalik dengan !digitalRead() sehingga terbaca sebagai 1 di Serial Monitor).
 
-Respons kedua sensor ini langsung muncul pada Serial Monitor dan indikator LED, serta dikirimkan ke aplikasi Blynk secara real-time. Hal ini menunjukkan bahwa sistem mampu mendeteksi kondisi air secara dini dan memberikan peringatan bertingkat sesuai kondisi bahaya.
+Pada sistem ini, sensor ultrasonik digunakan untuk mengukur jarak antara sensor dengan permukaan air dalam satuan centimeter, sedangkan sensor air digital hanya mendeteksi keberadaan air pada level tertentu (logika 1 = air terdeteksi). Kombinasi kedua sensor memungkinkan sistem menentukan tingkat risiko banjir secara bertahap. Respons kedua sensor ini langsung muncul pada Serial Monitor dan indikator LED, serta dikirimkan ke aplikasi Blynk secara real-time. Hal ini menunjukkan bahwa sistem mampu mendeteksi kondisi air secara dini dan memberikan peringatan bertingkat sesuai kondisi bahaya.
 
 #### 8.2.1 Hasil Pengujian Sensor Ultrasonik  
 | No | Kondisi Uji                     | Jarak Air (CM) | Status Sistem | 
@@ -479,7 +512,7 @@ Tabel berikut menunjukkan hubungan antara jarak air, status sensor air digital, 
 | No | Jarak Air (cm) | Sensor Air | LED Hijau (LED1) | LED Merah (LED2)    | Status Serial Monitor| Status di BLYNK | 
 | -- | ------- | ---------- | ---------- | ------------ | --------------- | ----- |
 | 1  | > 15     | 0          | OFF          | OFF    | STATUS: AMAN        | AMAN   |
-| 2  | ≤ 15    |           | ON          | OFF     | STATUS: JARAK DEKAT | WASPADA BANJIR   |
+| 2  | ≤ 15    |    0       | ON          | OFF     | STATUS: JARAK DEKAT | WASPADA BANJIR   |
 | 3  | 4-1     | 1          | OFF          | ON | STATUS: AIR TERDETEKSI    | BAHAYA BANJIR TINGGI   |
 
 
@@ -528,6 +561,25 @@ ESP32 berhasil mengirimkan data ke Blynk secara real-time:
 <img width="259" height="335" alt="image" src="https://github.com/user-attachments/assets/a83acba1-2efc-47fa-a78f-3824e244d718" />
 
 
+### 8.5 Pengujian Integrasi Sistem IoT
+
+Pengujian integrasi sistem IoT dilakukan setelah seluruh komponen — yaitu sensor ultrasonik, sensor air digital, indikator LED, mikrokontroler ESP32, serta platform Blynk — dirangkai dan diprogram menjadi satu sistem utuh. Tujuan dari pengujian ini adalah untuk memastikan bahwa semua komponen tidak hanya berfungsi secara mandiri, tetapi juga mampu bekerja secara terpadu dalam membaca kondisi ketinggian air, mengolah data, menampilkan indikator visual, dan mengirimkan informasi ke platform IoT secara real-time.
+
+Pada tahap ini, dilakukan beberapa skenario pengujian berdasarkan variasi ketinggian air dan aktivasi sensor air digital. Data yang terbaca oleh ESP32 langsung diproses untuk menentukan status sistem (Aman, Waspada, atau Bahaya), kemudian hasilnya ditampilkan melalui LED indikator dan dikirimkan ke aplikasi Blynk pada virtual pin V0 (jarak), V1 (status sensor air), dan V2 (status sistem).
+
+**Tabel Data Hasil Uji Integrasi Sistem IoT**
+
+| No | Kondisi Fisik Air                               | Jarak Air (cm) | Sensor Air Digital | Status Sistem        | LED Hijau | LED Merah | Status di Aplikasi Blynk |
+| -: | ----------------------------------------------- | -------------- | ------------------ | -------------------- | --------- | --------- | ------------------------ |
+|  1 | Air berada jauh dari sensor dan belum kritis    | 25–30          | 0 (tidak aktif)    | Aman                 | OFF       | OFF       | AMAN                     |
+|  2 | Air mulai mendekati sensor (≤ 15 cm)            | 10–15          | 0 (tidak aktif)    | Waspada Banjir       | ON        | OFF       | WASPADA BANJIR           |
+|  3 | Air menyentuh sensor air digital (level kritis) | 1–5            | 1 (aktif)          | Bahaya Banjir Tinggi | OFF       | ON        | BAHAYA BANJIR TINGGI     |
+
+> Data pada tabel menunjukkan bahwa setiap perubahan kondisi air menghasilkan respons langsung pada output sistem, baik pada LED indikator maupun aplikasi Blynk.
+
+Selama pengujian, seluruh proses berjalan secara real-time tanpa jeda signifikan antara pembacaan sensor dengan tampilan data pada dashboard Blynk. Hal ini menunjukkan bahwa komunikasi WiFi dan fungsi Blynk.run() bekerja dengan stabil dalam menjaga koneksi antara ESP32 dan server. Selain itu, sistem tetap memberikan indikator lokal melalui LED, sehingga informasi tetap dapat diakses meskipun perangkat pengguna tidak sedang membuka aplikasi.
+
+Berdasarkan hasil pengamatan, dapat disimpulkan bahwa sistem telah berfungsi secara terintegrasi, di mana proses deteksi, pemrosesan data, pemberian indikator visual, serta pengiriman data IoT berjalan sinkron dan sesuai dengan logika yang dirancang. Dengan demikian, sistem peringatan dini banjir berbasis IoT ini telah siap digunakan sebagai alat monitoring ketinggian air yang informatif, responsif, dan mudah dipantau dari jarak jauh.
 
 ## 9. Kesimpulan
 
@@ -544,3 +596,29 @@ LED hijau dan merah memberikan indikator visual, sementara Blynk menerima data r
 **3. Integrasi ESP32 dan IoT Efektif**
 
 ESP32 memproses sensor, mengendalikan output, dan mengirim informasi ke Blynk, membuat sistem peringatan dini banjir berbasis IoT berjalan responsif dan informatif.
+
+**4. Sistem Layak Diimplementasikan** 
+
+Berdasarkan hasil pengujian keseluruhan, sistem peringatan dini banjir berbasis ESP32 ini dinilai layak digunakan sebagai alat monitoring sederhana yang bersifat informatif serta mudah direalisasikan pada lingkungan masyarakat.
+
+## 10. Kontribusi Anggota
+
+Pelaksanaan proyek ini dilakukan secara kolaboratif oleh anggota tim. Setiap anggota memiliki pembagian tugas yang jelas sesuai dengan kompetensi dan perannya, namun tetap saling bekerja sama dalam proses diskusi, evaluasi, dan penyelesaian permasalahan teknis selama perancangan sistem.
+
+**Tabel Pembagian Kontribusi Anggota**
+
+| No | Nama Anggota                   | Peran dan Kontribusi Utama                                                                                                                                                                                                                                                                        |
+| -: | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  1 | **Muhammad Abdurrahman Haris** | • Merancang konsep sistem peringatan dini banjir berbasis IoT<br>• Menyusun arsitektur perangkat keras dan alur kerja sistem<br>• Mengembangkan program ESP32 (sensor, LED, WiFi, dan Blynk)<br>• Mengintegrasikan sistem dengan platform IoT<br>• Menyusun struktur laporan dan penulisan teknis |
+|  2 | **Badru Munir**                | • Melakukan perakitan perangkat keras dan wiring sensor<br>• Melaksanakan pengujian sensor dan sistem secara bertahap<br>• Mengumpulkan serta mendokumentasikan data hasil pengujian<br>• Membantu analisis hasil dan validasi sistem<br>• Berkontribusi dalam penyusunan laporan akhir           |
+
+
+Selain pembagian tugas tersebut, kedua anggota tim juga berperan aktif secara kolaboratif dalam seluruh tahapan penelitian. Keterlibatan bersama meliputi kegiatan:
+
+1. Melaksanakan diskusi teknis dalam perancangan metode dan pemilihan komponen sistem.
+2. Melakukan proses debugging program, penelusuran kesalahan, serta perbaikan modul perangkat lunak dan perangkat keras.
+3. Melakukan evaluasi kinerja sistem, khususnya pada tahap integrasi IoT dan pengujian fungsionalitas secara menyeluruh.
+4. Menyusun kesimpulan penelitian serta merumuskan rekomendasi pengembangan sistem pada tahap berikutnya.
+
+Dengan adanya pembagian peran yang terstruktur serta koordinasi yang baik antaranggota, pelaksanaan proyek ini dapat berjalan secara efektif, sistematis, dan sesuai dengan tujuan penelitian yang telah ditetapkan.
+
