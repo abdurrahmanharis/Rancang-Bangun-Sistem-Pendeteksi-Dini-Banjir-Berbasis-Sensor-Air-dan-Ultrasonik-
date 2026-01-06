@@ -16,9 +16,7 @@ Dengan menggabungkan kedua sensor tersebut, sistem ini tidak hanya memonitor ket
 Berdasarkan latar belakang tersebut, rumusan masalah dalam proyek ini adalah sebagai berikut:
 
 1. Bagaimana merancang sistem pendeteksi dini banjir berbasis IoT menggunakan sensor ultrasonik dan sensor air digital pada mikrokontroler ESP32 untuk memantau ketinggian air secara real-time?
-
-2. Bagaimana mekanisme pengolahan dan pengiriman data ketinggian air melalui jaringan WiFi ke platform Blynk agar informasi kondisi banjir dapat dipantau dari jarak jauh?
-   
+2. Bagaimana mekanisme pengolahan dan pengiriman data ketinggian air melalui jaringan WiFi ke platform Blynk agar informasi kondisi banjir dapat dipantau dari jarak jauh? 
 3. Bagaimana menetapkan kriteria status Aman, Waspada, dan Bahaya berdasarkan pembacaan sensor agar sistem dapat memberikan peringatan dini yang efektif?
 
 ## 3. Tujuan
