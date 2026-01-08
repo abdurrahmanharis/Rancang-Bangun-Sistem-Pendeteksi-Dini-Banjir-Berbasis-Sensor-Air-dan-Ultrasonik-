@@ -645,6 +645,7 @@ Selain pembagian tugas tersebut, kedua anggota tim juga berperan aktif secara ko
 ### 10.2 Penilaian Kinerja Anggota Tim Proyek
 
 **1. Muhammad Abdurrahman Haris**
+
 **Nilai: 97 / 100**
 
 Muhammad Abdurrahman Haris menunjukkan peran yang dominan dan strategis dalam perancangan proyek ini. Ia bertanggung jawab penuh dalam perancangan konsep sistem peringatan dini banjir berbasis IoT, mulai dari perumusan ide awal, penyusunan arsitektur sistem, hingga pengembangan perangkat lunak pada ESP32. Kemampuannya dalam mengintegrasikan sensor, modul komunikasi WiFi, serta platform Blynk menunjukkan penguasaan teknis yang baik dan pemahaman sistem yang menyeluruh.
@@ -652,6 +653,7 @@ Muhammad Abdurrahman Haris menunjukkan peran yang dominan dan strategis dalam pe
 Selain aspek teknis, Haris juga berkontribusi besar dalam penyusunan struktur laporan dan penulisan teknis, sehingga dokumentasi proyek tersusun rapi, sistematis, dan mudah dipahami. Dalam diskusi tim, ia aktif memberikan arahan teknis dan solusi ketika terjadi permasalahan, khususnya pada tahap debugging dan integrasi sistem. Nilai yang diberikan mencerminkan kontribusi yang sangat kuat, konsistensi kerja, serta tanggung jawab yang tinggi, dengan tetap membuka ruang kolaborasi bersama anggota lain.
 
 **2. Badru Munir**
+
 **Nilai: 95 / 100**
 
 Badru Munir berperan penting dalam aspek implementasi lapangan dan pengujian sistem. Ia bertanggung jawab dalam perakitan perangkat keras, pengkabelan sensor, serta memastikan seluruh komponen terpasang dan berfungsi sesuai dengan rancangan. Ketelitiannya dalam melakukan pengujian bertahap terhadap sensor dan sistem secara keseluruhan membantu memastikan keandalan dan kestabilan sistem yang dikembangkan.
