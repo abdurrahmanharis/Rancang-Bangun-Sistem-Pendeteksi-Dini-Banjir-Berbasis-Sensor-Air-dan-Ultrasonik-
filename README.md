@@ -291,11 +291,13 @@ Sistem membagi kondisi menjadi tiga status berdasarkan pembacaan sensor:
 1. Buat Template di BLYNK dengan membuka [Blynk Console](https://blynk.cloud/dashboard) → Klik menu “Templates” → + New Template.
 2. Isi nama: misalnya `Siaga Banjir` → Pilih perangkat: ESP32 → Connection type: WiFi → Klik Done.
 3. Buka tab “Datastreams” untuk menambahkan virtual pin:
-   | Nama        | Tipe    | Pin | Additional        |
-   | ----------- | ------- | --- | ----------------- |
-   | Ketinggian Air   | Integer | V0  | Range: 1–100      |
-   | Sensor Air   | Integer | V1  | 0 = aman, 1 = air |
-   | Status | string | V2  |    “AMAN”, “WASPADA BANJIR”, “BANJIR TINGGI”   |
+   
+| No | Nama Datastream    | Jenis Data | Virtual Pin | Rentang Nilai / Isi                   | Fungsi                                                        |
+| -- | ------------------ | ---------- | ----------- | ------------------------------------- | ------------------------------------------------------------- |
+| 1  | Ketinggian Air     | Integer    | V0          | 0 – 100 (atau sesuai kebutuhan)       | Menampilkan nilai jarak/ketinggian air dari sensor ultrasonik |
+| 2  | Sensor Air Digital | Integer    | V1          | 0 = Tidak ada air, 1 = Air terdeteksi | Menampilkan status sensor air digital                         |
+| 3  | Status Banjir      | String     | V2          | “AMAN / WASPADA / BAHAYA”             | Menampilkan status kondisi banjir                             |
+
 
 4. Simpan, lalu kembali ke **Devices** → klik **+ New Device** → pilih **From Template**, pilih template tadi, lalu beri nama `Siaga Banjir`.
 5. Setelah device dibuat, akan muncul:
