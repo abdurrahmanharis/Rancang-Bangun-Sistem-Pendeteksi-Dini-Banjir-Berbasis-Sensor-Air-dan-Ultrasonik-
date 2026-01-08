@@ -29,17 +29,37 @@ Tujuan dari Proyek ini adalah:
 
 ## 4. Alat dan Bahan
 Alat dan bahan yang digunakan dalam proyek ini meliputi:
-| No   |    Alat/Bahan       | Fungsi      |
-|----|----------------------|----------------|
-| 1. | Mikrokontroler ESP32 | Mikrokontroler utama untuk mengolah data sensor dan mengontrol output. |
-| 2. | Sensor Ultrasonik | Mengukur jarak antara permukaan air dengan sensor. |
-| 3. | Sensor Air Digital |Mendeteksi keberadaan air pada level kritis.  |
-| 4. |  LED Merah | Indikator visual kondisi bahaya.  |
-| 5. | LED Hijau |  Indikator visual kondisi waspada. |
-| 6. | Kabel Jumper | Menghubungkan komponen dalam breadboard. | 
-| 7. |  Sumber Daya USB | Memberikan suplai daya ke ESP32 melalui laptop/PC. |
-| 8. | Laptop/PC| Menulis, mengunggah, dan menjalankan program di Arduino IDE. | 
-| 9. |Aplikasi Blynk | Platform IoT untuk memantau data secara real-time di smartphone. |
+
+### 4.1 Perangkat Keras
+| No | Alat/Bahan                | Fungsi                                              | Letak Penggunaannya                                                                                        |
+| -- | ------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1  | Mikrokontroler ESP32      | Mengolah data sensor dan mengirim data ke Internet. | Dipasang sebagai pusat kendali sistem. Semua sensor, LED, dan modul dihubungkan ke pin GPIO ESP32.         |
+| 2  | Sensor Ultrasonik HC-SR04 | Mengukur jarak permukaan air dari posisi sensor.    | Ditempatkan di atas permukaan air (misal di dinding saluran air), dihubungkan ke pin trigger & echo ESP32. |
+| 3  | Sensor Air Digital        | Mendeteksi keberadaan air pada level kritis.        | Dipasang pada titik level rawan banjir (level siaga kritis), dihubungkan ke pin input digital ESP32.       |
+| 4  | LED Merah                 | Indikator **bahaya / siaga 1**.                     | Dipasang pada pin output ESP32, menyala saat ketinggian air melewati batas bahaya.                         |
+| 5  | LED Hijau                 | Indikator **aman**.                                 | Dipasang pada pin output ESP32, menyala saat kondisi normal.                                               |
+| 6  | Kabel Jumper              | Menghubungkan tiap komponen elektronik.             | Dipasang  untuk menghubungkan ESP32 dengan sensor, LED, dan power.                          |
+| 7  | Sumber Daya USB           | Memberikan suplai daya ke ESP32.                    | Dihubungkan dari laptop/adapter ke port USB ESP32.                                                         |
+| 8  | Laptop / PC               | Menulis dan upload program.                         | Dipakai saat proses pemrograman melalui Arduino IDE.                                                       |
+| 9 | Smartphone Android/iOS    | Monitoring data IoT real-time.                      | Digunakan untuk membuka Aplikasi Blynk dan menerima notifikasi dari sistem.                                |
+| 10 | Internet / WiFi           | Media komunikasi data.                              | Diperlukan agar ESP32 bisa terhubung ke server Blynk Cloud.                                                |
+
+### 4.2 Perangkat Lunak 
+| No | Software/Aplikasi            | Fungsi Penggunaan                        | Letak Penggunaannya                                                |
+| -- | ---------------------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| 1  | Arduino IDE                  | Menulis, kompilasi, dan upload program.  | Digunakan di Laptop/PC selama proses pembuatan program ESP32.      |
+| 2  | Board ESP32 (Boards Manager) | Supaya Arduino IDE bisa mengenali ESP32. | Di-install pada Arduino IDE sebelum pemrograman.                   |
+| 3  | Aplikasi Blynk               | Monitoring data sensor dan notifikasi.   | Dipasang di smartphone, menerima data dari ESP32 melalui Internet. |
+
+### 4.3 Library Program
+| No | Library            | Fungsi Pemakaian                           | Sumber               | Letak Penggunaannya dalam Program                                                                                       |
+| -- | ------------------ | ------------------------------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 1  | WiFi.h             | Menghubungkan ESP32 ke jaringan WiFi.      | Default ESP32 Core   | Di bagian awal program untuk inisialisasi WiFi, login SSID & Password, serta mengecek status koneksi.                   |
+| 2  | WiFiClient.h       | Mengelola komunikasi TCP/IP.               | Default ESP32 Core   | Digunakan saat ESP32 mengirim data ke server (misalnya ke Blynk Cloud). Biasanya otomatis dipanggil saat koneksi aktif. |
+| 3  | BlynkSimpleEsp32.h | Menghubungkan ESP32 ke Platform IoT Blynk. | Library Blynk        | Dipakai untuk mengirim nilai sensor ke aplikasi Blynk, menerima perintah dari aplikasi, dan mengatur Virtual Pin.       |
+| 4  | Ultrasonic.h       | Membaca jarak dari sensor ultrasonik.      | Library pihak ketiga | Digunakan saat mendeklarasikan objek sensor dan memproses hasil jarak dalam satuan cm/mm.                               |
+| 5  | Arduino.h          | Menyediakan fungsi dasar Arduino.          | Default              | Dipanggil secara otomatis saat program berjalan (setup(), loop(), digitalWrite(), dll.).                                |
+
 
 > **Catatan:** Pastikan semua perangkat lunak pendukung dan dependensi sudah terinstal dengan benar sebelum memulai pengembangan sistem.
 
