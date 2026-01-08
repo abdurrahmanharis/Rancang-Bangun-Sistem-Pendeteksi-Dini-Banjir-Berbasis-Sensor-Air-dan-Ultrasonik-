@@ -36,8 +36,8 @@ Alat dan bahan yang digunakan dalam proyek ini meliputi:
 | 1  | Mikrokontroler ESP32      | Mengolah data sensor dan mengirim data ke Internet. | Dipasang sebagai pusat kendali sistem. Semua sensor, LED, dan modul dihubungkan ke pin GPIO ESP32.         |
 | 2  | Sensor Ultrasonik HC-SR04 | Mengukur jarak permukaan air dari posisi sensor.    | Ditempatkan di atas permukaan air (misal di dinding saluran air), dihubungkan ke pin trigger & echo ESP32. |
 | 3  | Sensor Air Digital        | Mendeteksi keberadaan air pada level kritis.        | Dipasang pada titik level rawan banjir (level siaga kritis), dihubungkan ke pin input digital ESP32.       |
-| 4  | LED Merah                 | Indikator **bahaya / siaga 1**.                     | Dipasang pada pin output ESP32, menyala saat ketinggian air melewati batas bahaya.                         |
-| 5  | LED Hijau                 | Indikator **aman**.                                 | Dipasang pada pin output ESP32, menyala saat kondisi normal.                                               |
+| 4  | LED Merah                 | Indikator **bahaya kritis**.                     | Dipasang pada pin output ESP32, menyala saat ketinggian air melewati batas bahaya.                         |
+| 5  | LED Hijau                 | Indikator **waspada**.                                 | Dipasang pada pin output ESP32, menyala saat kondisi waspada.                                               |
 | 6  | Kabel Jumper              | Menghubungkan tiap komponen elektronik.             | Dipasang  untuk menghubungkan ESP32 dengan sensor, LED, dan power.                          |
 | 7  | Sumber Daya USB           | Memberikan suplai daya ke ESP32.                    | Dihubungkan dari laptop/adapter ke port USB ESP32.                                                         |
 | 8  | Laptop / PC               | Menulis dan upload program.                         | Dipakai saat proses pemrograman melalui Arduino IDE.                                                       |
