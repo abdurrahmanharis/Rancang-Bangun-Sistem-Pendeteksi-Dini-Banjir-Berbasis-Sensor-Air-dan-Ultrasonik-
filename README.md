@@ -627,7 +627,7 @@ Berdasarkan hasil pengujian keseluruhan, sistem peringatan dini banjir berbasis 
 
 Pelaksanaan proyek ini dilakukan secara kolaboratif oleh anggota tim. Setiap anggota memiliki pembagian tugas yang jelas sesuai dengan kompetensi dan perannya, namun tetap saling bekerja sama dalam proses diskusi, evaluasi, dan penyelesaian permasalahan teknis selama perancangan sistem.
 
-**Tabel Pembagian Kontribusi Anggota**
+### 10.1 Tabel Pembagian Kontribusi Anggota
 
 | No | Nama Anggota                   | Peran dan Kontribusi Utama                                                                                                                                                                                                                                                                        |
 | -: | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -641,6 +641,26 @@ Selain pembagian tugas tersebut, kedua anggota tim juga berperan aktif secara ko
 2. Melakukan proses debugging program, penelusuran kesalahan, serta perbaikan modul perangkat lunak dan perangkat keras.
 3. Melakukan evaluasi kinerja sistem, khususnya pada tahap integrasi IoT dan pengujian fungsionalitas secara menyeluruh.
 4. Menyusun kesimpulan penelitian serta merumuskan rekomendasi pengembangan sistem pada tahap berikutnya.
+
+### 10.2 Penilaian Kinerja Anggota Tim Proyek
+
+**1. Muhammad Abdurrahman Haris**
+**Nilai: 97 / 100**
+
+Muhammad Abdurrahman Haris menunjukkan peran yang dominan dan strategis dalam perancangan proyek ini. Ia bertanggung jawab penuh dalam perancangan konsep sistem peringatan dini banjir berbasis IoT, mulai dari perumusan ide awal, penyusunan arsitektur sistem, hingga pengembangan perangkat lunak pada ESP32. Kemampuannya dalam mengintegrasikan sensor, modul komunikasi WiFi, serta platform Blynk menunjukkan penguasaan teknis yang baik dan pemahaman sistem yang menyeluruh.
+
+Selain aspek teknis, Haris juga berkontribusi besar dalam penyusunan struktur laporan dan penulisan teknis, sehingga dokumentasi proyek tersusun rapi, sistematis, dan mudah dipahami. Dalam diskusi tim, ia aktif memberikan arahan teknis dan solusi ketika terjadi permasalahan, khususnya pada tahap debugging dan integrasi sistem. Nilai yang diberikan mencerminkan kontribusi yang sangat kuat, konsistensi kerja, serta tanggung jawab yang tinggi, dengan tetap membuka ruang kolaborasi bersama anggota lain.
+
+**2. Badru Munir**
+**Nilai: 95 / 100**
+
+Badru Munir berperan penting dalam aspek implementasi lapangan dan pengujian sistem. Ia bertanggung jawab dalam perakitan perangkat keras, pengkabelan sensor, serta memastikan seluruh komponen terpasang dan berfungsi sesuai dengan rancangan. Ketelitiannya dalam melakukan pengujian bertahap terhadap sensor dan sistem secara keseluruhan membantu memastikan keandalan dan kestabilan sistem yang dikembangkan.
+
+Selain itu, Badru Munir secara aktif mengumpulkan dan mendokumentasikan data hasil pengujian, yang menjadi dasar penting dalam proses analisis dan validasi sistem. Kontribusinya dalam evaluasi kinerja sistem dan penyusunan laporan akhir menunjukkan sikap kerja yang konsisten dan kooperatif. Dalam kerja tim, ia menunjukkan kesiapan membantu dan berkolaborasi, khususnya pada tahap debugging dan pengujian fungsional. Nilai yang diberikan mencerminkan kinerja yang sangat baik, tanggung jawab tinggi, dan kontribusi nyata terhadap keberhasilan proyek.
+
+### 10.3 Kesimpulan Penilaian Tim dan Kontribusi Anggota
+
+Secara keseluruhan, kedua anggota tim menunjukkan kinerja yang seimbang, saling melengkapi, dan berkontribusi nyata sesuai peran masing-masing. Tidak terdapat dominasi yang merugikan, melainkan sinergi yang kuat antara perancangan sistem dan implementasi teknis. Perbedaan nilai diberikan secara wajar berdasarkan lingkup tanggung jawab, namun keduanya tetap berada pada kategori sangat baik dan layak memperoleh apresiasi yang setara sebagai satu tim yang solid.
 
 Dengan adanya pembagian peran yang terstruktur serta koordinasi yang baik antaranggota, pelaksanaan proyek ini dapat berjalan secara efektif, sistematis, dan sesuai dengan tujuan penelitian yang telah ditetapkan.
 
